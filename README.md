@@ -1,4 +1,4 @@
-#Alarm Clock Web App
+# 🕒Alarm Clock Web App
 
 Um relógio digital com alarmes, feito com HTML, CSS e JavaScript puro. Crie alarmes, ligue/desligue, e ouça o som em loop até desligar!
 
@@ -67,14 +67,11 @@ Clique em Desligar para parar o alarme
 
 Todos os alarmes são salvos automaticamente no navegador.
 
-📸 Capturas de Tela (Opcional)
+📸 Capturas de Tela
 
+<img width="546" height="742" alt="image" src="https://github.com/user-attachments/assets/ed270e23-ef41-45fd-87c6-b003461bc752" />
+<img width="674" height="739" alt="image" src="https://github.com/user-attachments/assets/093482cc-d5fd-4a3c-97e4-fa5b8a672775" />
 
-
-
-
-
-(Adicione suas próprias imagens na pasta screenshots/ se quiser mostrar o projeto visualmente)
 
 ⚠️ Observações
 
