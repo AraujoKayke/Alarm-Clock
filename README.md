@@ -2,6 +2,8 @@
 
 Um relógio digital com alarmes, feito com HTML, CSS e JavaScript puro. Crie alarmes, ligue/desligue, e ouça o som em loop até desligar!
 
+⚡ Observação: Durante o desenvolvimento, utilizei ferramentas de Inteligência Artificial (IA) para me auxiliar na lógica do código e na organização do projeto.
+
 ✨ Funcionalidades
 
 ⏰ Relógio em tempo real (horas, minutos e segundos)
