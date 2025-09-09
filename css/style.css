@@ -1,0 +1,309 @@
+/*#region Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*#endregion  */
+
+/*#region variables */
+:root{
+    /* Colors */
+    --black-blue: #141F36;
+    --white-blue: #F1F3FF;
+    --light-blue: #293A5A;
+    --medium-red: #b63f3f;
+}
+/*#endregion variables */
+
+/*#region Default */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/*#endregion  */
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to top, #121825, #182847);
+    color: var(--white-blue);
+    font-family: "Poppins", sans-serif
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.container .clock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.container .clock h1{
+    font-size: 64px;
+    font-weight: 700;
+}
+
+.container .clock h2{
+    width: 90%;
+    height: 70px;
+    font-size: 64px;
+    font-weight: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-blue);
+    color: var(--black-blue);
+    border-radius: 20px;
+}
+
+.container .alarm-clock{
+    width: 100%;
+}
+
+.container .alarm-clock .create-alarm{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.container .alarm-clock .create-alarm .timer, .buttons{
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    width: 100%;
+  
+}
+
+.container .alarm-clock .create-alarm .timer input{
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    background-color: var(--white-blue);
+    margin: 20px 0;
+    border: none;
+    border-radius: 20px;
+    padding: 15px;
+    gap: 15px;
+    width: 60px;
+    outline: none;
+}
+
+.container .alarm-clock .create-alarm .timer input::placeholder{
+    color: var(--black-blue);
+}
+
+.container .alarm-clock .create-alarm .buttons button{
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    color: var(--white-blue);
+    background-color: var(--black-blue);
+    border: 1px solid var(--white-blue);
+    border-radius: 15px;
+    width: 100%;
+    
+}
+
+/*#region Remover Opções de Numeros no iput*/
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/*#endregion*/
+
+.container .alarm-clock .create-alarm .buttons button:hover{
+    background-color: var(--white-blue);
+    color: var(--black-blue);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.container .alarm-clock .created-alarm #alarms-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid var(--white-blue);
+    border-radius: 15px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.container .alarm-clock .created-alarm .alarm-1 h2, .alarm-2 h2{
+    font-size: 24px;
+    font-weight: 200;
+}
+
+/* Container dos alarmes */
+#alarms-container {
+    display: flex;
+    flex-direction: column; /* cada alarme em linha */
+    width: 100%;
+    gap: 10px; /* espaçamento entre alarmes */
+}
+
+/* Caixa de cada alarme */
+.alarm-item {
+    display: flex;
+    justify-content: space-between; /* horário à esquerda, botões à direita */
+    align-items: center; /* centraliza verticalmente */
+    padding: 10px 15px;
+    border: 1px solid var(--white-blue);
+    border-radius: 15px;
+    background-color: var(--black-blue);
+}
+
+/* Horário do alarme */
+.alarm-item h2 {
+    font-size: 24px;
+    font-weight: 200;
+    color: var(--white-blue);
+    margin: 0;
+}
+
+/* Container dos botões (switch + lixeira) */
+.alarm-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Lixeira */
+.trash {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.trash i {
+    color: var(--white-blue);
+    font-size: 20px;
+}
+
+.trash i:hover {
+    color: var(--medium-red);
+    transition: 0.3s;
+}
+
+.popup {
+  display: none; /* escondido por padrão */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: var(--white-blue);
+  color: var(--black-blue);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.popup-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: var(--light-blue);
+  color: var(--white-blue);
+}
+
+.popup-content button:hover{
+  transition: .3s;
+  background-color: var(--white-blue);
+  color: var(--black-blue);
+  border: 1px solid var(--black-blue);
+}
+
+
+/*#region container do switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+/* esconde o checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* trilho do switch */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--light-blue); /* cor off */
+  border: 1px solid var(--white-blue);
+  border-radius: 20px; /* deixa redondo */
+  transition: .3s;
+}
+
+/* bolinha */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 3.5px;
+  bottom: 2.5px;
+  background-color: var(--white-blue);
+  border-radius: 50%;
+  transition: .3s;
+}
+
+/* quando marcado */
+.switch input:checked + .slider {
+  background-color: var(--white-blue); /* cor ON */
+}
+
+.switch input:checked + .slider:before {
+  background-color: var(--light-blue);
+  transform: translateX(19.5px); /* desliza bolinha */
+}/*#endregion  */
+
+/*#region Query*/
+/* `sm` applies to x-small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+}
+
+/* `md` applies to small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) {
+
+}
+
+/* `lg` applies to medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+
+}
+
+/* `xl` applies to large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+
+}
+
+/* `xxl` applies to x-large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) { 
+
+}
+/*#endregion*/
