@@ -70,12 +70,15 @@ Quando o alarme tocar, um popup 🔔 irá aparecer com a opção de desligar.
 📸 Capturas de Tela
 
 1️⃣ Relógio Digital
+<img width="336" height="333" alt="image" src="https://github.com/user-attachments/assets/b91a118e-8857-4a99-9dbf-ec2d9cc6187b" />
+
 
 2️⃣ Modal de Criação de Alarme
+<img width="336" height="603" alt="image" src="https://github.com/user-attachments/assets/6365e5d0-ac96-4757-aa94-c0465a59770b" />
 
 3️⃣ Lista de Alarmes Criados
+<img width="341" height="393" alt="image" src="https://github.com/user-attachments/assets/494e1074-1ff6-4cd0-abc0-4670c6dd0b81" />
 
-4️⃣ Popup de Alarme Ativo
 
 
 ⚠️ Notas
