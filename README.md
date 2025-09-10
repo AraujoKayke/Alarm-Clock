@@ -5,7 +5,7 @@ O projeto foi desenvolvido com a ajuda de Inteligência Artificial (IA) para oti
 
 ⚡ Observação: Durante o desenvolvimento, utilizei ferramentas de Inteligência Artificial (IA) para me auxiliar na lógica do código e na organização do projeto.
 
-✨ Funcionalidades
+## ✨ Funcionalidades
 
 🕒 Relógio digital em tempo real.
 
@@ -27,7 +27,7 @@ O projeto foi desenvolvido com a ajuda de Inteligência Artificial (IA) para oti
 
 🎨 Interface moderna e limpa com estilo minimalista.
 
-🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 HTML5
 
@@ -41,6 +41,8 @@ Bootstrap Icons para ícones
 
 Sons de alarme em formato MP3
 
+##📁 Estrutura de Arapastafolde
+
 Alarm-Clock/
 │
 ├─ index.html        # Página principal
@@ -51,7 +53,7 @@ Alarm-Clock/
 └─ sounds/           # Sons disponíveis para alarme
 
 
-🚀 Como usar
+##🚀 Como usar
 
 Abra a página index.html no navegador.
 
@@ -67,7 +69,7 @@ Para apagar todos os alarmes, clique em Clear All ❌ (aparece somente se houver
 
 Quando o alarme tocar, um popup 🔔 irá aparecer com a opção de desligar.
 
-📸 Capturas de Tela
+##📸 Capturas de Tela
 
 ### 1️⃣ Relógio Digital
 ![Relógio Digital](https://github.com/user-attachments/assets/b91a118e-8857-4a99-9dbf-ec2d9cc6187b)
@@ -81,13 +83,13 @@ Quando o alarme tocar, um popup 🔔 irá aparecer com a opção de desligar.
 ### 4️⃣ Lista de Sons
 ![Lista de Sons](https://github.com/user-attachments/assets/5153b3b9-b213-4fd1-94cb-47131372ed9e)
 
-⚠️ Notas
+##⚠️ Notas
 
 Os alarmes são salvos localmente no navegador usando localStorage. Se limpar os dados do navegador, os alarmes serão apagados.
 
 A interface do modal é responsiva, garantindo que funcione bem em mobile e desktop.
 
-💡 Créditos
+##💡 Créditos
 
 Desenvolvido por Kayke Araujo
 
