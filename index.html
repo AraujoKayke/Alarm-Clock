@@ -10,25 +10,45 @@
 <body>
     <div class="container">
         <div class="clock">
-            <h1>TIME </h1>
             <h2 id="time">00:00:00</h2>
         </div>
         <div class="alarm-clock">
             <div class="create-alarm">
-                <div class="timer">
-                    <input type="number" id="hour" placeholder="00" min="0" max="23">
-                    <input type="number" id="minute" placeholder="00" min="0" max="59">
-                </div>
                 <div class="buttons">
-                    <button id="add-alarm">Add Alarm</button>
-                    <button id="clear-all">Clear All</button>
+                    <button id="open-modal">Add Alarm</button>
+                    <button id="clear-all" style="display:none;">Clear All</button>
                 </div>
+                <div id="create-modal" class="popup">
+                    <div class="popup-content">
+                        <h2>Criar Alarme</h2>
+                        <label for="modal-hour">Hora:</label>
+                        <select id="modal-hour"></select>
+                        <label for="modal-minute">Minuto:</label>
+                        <select id="modal-minute"></select>
+                        <label for="alarm-sound-select">Som:</label>
+                        <select id="alarm-sound-select">
+                            <option value="./sounds/alarm-clock-90867.mp3">Clássico</option>
+                            <option value="./sounds/mixkit-slot-machine-win-alarm-1995.mp3">Clássico 2</option>
+                            <option value="./sounds/mixkit-game-notification-wave-alarm-987.mp3">Game Notification</option>
+                            <option value="./sounds/mixkit-short-rooster-crowing-2470.mp3">Galo</option>
+                            <option value="./sounds/mixkit-classic-winner-alarm-1997.mp3">Alarme Vencedor</option>
+                            <option value="./sounds/Alarme Vintage.mp3">Alarme Vintage</option>
+                            <option value="./sounds/Alarme Beep.mp3">Alarme Beep</option>
+                        </select>
+                        <button id="test-sound">Testar Som</button>
+                        <div style="margin-top:15px;">
+                            <button id="save-alarm">Salvar</button>
+                            <button id="cancel-alarm">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Player para testar som -->
+                <audio id="test-audio"></audio>
             </div>
-            <div class="created-alarm" id="alarms-container">
-            </div>
+            <div class="created-alarm" id="alarms-container"></div>
         </div>
     </div>
-    <div id="alarm-popup" class="popup">
+    <div class="popup" id="alarm-popup">
         <div class="popup-content">
             <h2>Alarme!</h2>
             <p id="popup-time">Hora de acordar!</p>

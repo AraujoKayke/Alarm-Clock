@@ -45,11 +45,6 @@ body{
     width: 100%;
 }
 
-.container .clock h1{
-    font-size: 64px;
-    font-weight: 700;
-}
-
 .container .clock h2{
     width: 90%;
     height: 70px;
@@ -58,8 +53,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--white-blue);
-    color: var(--black-blue);
+    color: var(--white-blue);
     border-radius: 20px;
 }
 
@@ -75,71 +69,31 @@ body{
     margin-bottom: 20px;
 }
 
-.container .alarm-clock .create-alarm .timer, .buttons{
+/* Botões principais (Add Alarm e Clear All) */
+.container .alarm-clock .create-alarm .buttons {
     display: flex;
     justify-content: center;
     gap: 13px;
     width: 100%;
-  
+    margin-top: 20px;
 }
 
-.container .alarm-clock .create-alarm .timer input{
+.container .alarm-clock .create-alarm .buttons button {
     font-family: "Poppins", sans-serif;
-    font-size: 24px;
-    font-weight: 200;
-    background-color: var(--white-blue);
-    margin: 20px 0;
-    border: none;
-    border-radius: 20px;
-    padding: 15px;
-    gap: 15px;
-    width: 60px;
-    outline: none;
-}
-
-.container .alarm-clock .create-alarm .timer input::placeholder{
-    color: var(--black-blue);
-}
-
-.container .alarm-clock .create-alarm .buttons button{
-    font-family: "Poppins", sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 200;
     color: var(--white-blue);
     background-color: var(--black-blue);
     border: 1px solid var(--white-blue);
     border-radius: 15px;
-    width: 100%;
-    
+    padding: 10px 15px;
+    cursor: pointer;
 }
 
-/*#region Remover Opções de Numeros no iput*/
-input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-/*#endregion*/
-
-.container .alarm-clock .create-alarm .buttons button:hover{
+.container .alarm-clock .create-alarm .buttons button:hover {
     background-color: var(--white-blue);
     color: var(--black-blue);
-    cursor: pointer;
     transition: .3s;
-}
-
-.container .alarm-clock .created-alarm #alarms-container{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid var(--white-blue);
-    border-radius: 15px;
-    margin-top: 10px;
-    padding: 10px;
-}
-
-.container .alarm-clock .created-alarm .alarm-1 h2, .alarm-2 h2{
-    font-size: 24px;
-    font-weight: 200;
 }
 
 /* Container dos alarmes */
@@ -205,22 +159,48 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   z-index: 1000;
 }
 
+/* Modal */
 .popup-content {
   background-color: var(--white-blue);
   color: var(--black-blue);
   padding: 30px;
   border-radius: 15px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* espaço entre inputs/botões */
+  width: 300px;
 }
 
+/* Inputs dentro do modal */
+.popup-content input,
+.popup-content select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--light-blue);
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  outline: none;          /* tira a borda preta */
+  box-shadow: none;       /* tira brilho azul em alguns navegadores */
+}
+
+.popup-content input:focus,
+.popup-content select:focus {
+  border: 1px solid var(--black-blue); /* borda mais suave */
+}
+
+/* Botões no modal */
 .popup-content button {
-  margin-top: 15px;
+  margin-top: 10px;
   padding: 10px 20px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   background-color: var(--light-blue);
   color: var(--white-blue);
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
 }
 
 .popup-content button:hover{
@@ -230,6 +210,22 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   border: 1px solid var(--black-blue);
 }
 
+.popup-content select {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
+  background-color: var(--white-blue);
+  color: var(--black-blue);
+  border: 1px solid var(--light-blue);
+}
+
+.popup-content select:focus {
+  outline: none;
+}
 
 /*#region container do switch */
 .switch {
@@ -278,32 +274,34 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .switch input:checked + .slider:before {
   background-color: var(--light-blue);
   transform: translateX(19.5px); /* desliza bolinha */
-}/*#endregion  */
+}
+/*#endregion  */
 
 /*#region Query*/
-/* `sm` applies to x-small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
+    .popup-content {
+        width: 90%;       /* ocupa quase toda a tela horizontalmente */
+        max-height: 90vh; /* altura máxima 90% da tela */
+        padding: 15px;    /* menos espaçamento interno */
+        overflow-y: auto; /* permite scroll se tiver muitos elementos */
+        display: flex;
+        flex-direction: column;
+        gap: 10px;        /* espaço entre elementos */
+    }
 
+    .popup-content label,
+    .popup-content select,
+    .popup-content button,
+    .popup-content input {
+        font-size: 16px;
+    }
+
+    .popup-content button {
+        padding: 8px 12px;
+    }
 }
-
-/* `md` applies to small devices (landscape phones, less than 768px) */
-
-@media (max-width: 767.98px) {
-
-}
-
-/* `lg` applies to medium devices (tablets, less than 992px) */
-@media (max-width: 991.98px) {
-
-}
-
-/* `xl` applies to large devices (desktops, less than 1200px) */
-@media (max-width: 1199.98px) {
-
-}
-
-/* `xxl` applies to x-large devices (large desktops, less than 1400px) */
-@media (max-width: 1399.98px) { 
-
-}
+@media (max-width: 767.98px) {}
+@media (max-width: 991.98px) {}
+@media (max-width: 1199.98px) {}
+@media (max-width: 1399.98px) {} 
 /*#endregion*/

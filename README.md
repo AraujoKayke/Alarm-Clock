@@ -1,26 +1,33 @@
-# 🕒Alarm Clock Web App
+# 🕒 Alarm Clock Web App
 
-Um relógio digital com alarmes, feito com HTML, CSS e JavaScript puro. Crie alarmes, ligue/desligue, e ouça o som em loop até desligar!
+Um relógio digital com alarme personalizável, feito em HTML, CSS e JavaScript.
+O projeto foi desenvolvido com a ajuda de Inteligência Artificial (IA) para otimizar funcionalidades e design.
 
 ⚡ Observação: Durante o desenvolvimento, utilizei ferramentas de Inteligência Artificial (IA) para me auxiliar na lógica do código e na organização do projeto.
 
 ✨ Funcionalidades
 
-⏰ Relógio em tempo real (horas, minutos e segundos)
+🕒 Relógio digital em tempo real.
 
-➕ Criar alarmes com hora e minuto
+➕ Adição de alarmes através de modal.
 
-🔄 Ligar/desligar cada alarme individualmente
+⏱️ Seleção de hora e minuto via dropdown, sem possibilidade de digitar valores inválidos.
 
-🗑️ Deletar alarmes específicos ou todos de uma vez
+🔊 Escolha do som do alarme e opção de testar o som antes de salvar.
 
-🔔 Som de alarme tocando em loop
+📋 Visualização de todos os alarmes criados.
 
-📢 Popup para desligar o alarme
+❌ Botão Clear All aparece somente quando existem alarmes cadastrados.
 
-💾 Alarmes salvos automaticamente no Local Storage
+🔔 Alarme dispara popup com o horário definido e permite desligar.
 
-💻 Tecnologias Utilizadas
+💾 Alarmes salvos no localStorage para persistência.
+
+📱 Interface responsiva para desktop e mobile.
+
+🎨 Interface moderna e limpa com estilo minimalista.
+
+🛠️ Tecnologias Utilizadas
 
 HTML5
 
@@ -28,61 +35,57 @@ CSS3
 
 JavaScript (ES6)
 
-Bootstrap Icons
+LocalStorage para persistência dos alarmes
 
-📂 Estrutura do Projeto
-alarm-clock/
+Bootstrap Icons para ícones
+
+Sons de alarme em formato MP3
+
+Alarm-Clock/
 │
-├── index.html               # Página principal
-├── css/
-│   └── style.css            # Estilos do projeto
-├── js/
-│   └── script.js            # Lógica do relógio e alarmes
-└── sounds/
-    └── alarm-clock-90867.mp3   # Som do alarme
+├─ index.html        # Página principal
+├─ css/
+│  └─ style.css      # Estilos do projeto
+├─ js/
+│  └─ script.js      # Lógica do relógio e alarmes
+└─ sounds/           # Sons disponíveis para alarme
 
-🚀 Como Usar
 
-Abra index.html no navegador.
+🚀 Como usar
 
-Veja o relógio em tempo real.
+Abra a página index.html no navegador.
 
-Para adicionar um alarme:
+Clique em Add Alarm ➕ para abrir o modal.
 
-Preencha a hora (00–23) e o minuto (00–59)
+Selecione hora 🕐, minuto ⏱️ e som 🔊 do alarme.
 
-Clique em Add Alarm
+Clique em Testar Som ▶️ para ouvir o som antes de salvar.
 
-Cada alarme aparece em uma caixa:
+Clique em Salvar ✅ para criar o alarme.
 
-🕑 Horário à esquerda
+Para apagar todos os alarmes, clique em Clear All ❌ (aparece somente se houver alarmes cadastrados).
 
-🔘 Switch para ligar/desligar
-
-🗑️ Ícone de lixeira para deletar
-
-Quando o alarme tocar:
-
-Um popup aparece com o som em loop
-
-Clique em Desligar para parar o alarme
-
-Todos os alarmes são salvos automaticamente no navegador.
+Quando o alarme tocar, um popup 🔔 irá aparecer com a opção de desligar.
 
 📸 Capturas de Tela
 
-<img width="546" height="742" alt="image" src="https://github.com/user-attachments/assets/ed270e23-ef41-45fd-87c6-b003461bc752" />
-<img width="674" height="739" alt="image" src="https://github.com/user-attachments/assets/093482cc-d5fd-4a3c-97e4-fa5b8a672775" />
+1️⃣ Relógio Digital
+
+2️⃣ Modal de Criação de Alarme
+
+3️⃣ Lista de Alarmes Criados
+
+4️⃣ Popup de Alarme Ativo
 
 
-⚠️ Observações
+⚠️ Notas
 
-Alguns navegadores pedem permissão para tocar sons automaticamente.
+Os alarmes são salvos localmente no navegador usando localStorage. Se limpar os dados do navegador, os alarmes serão apagados.
 
-Projeto totalmente frontend, não precisa de servidor.
+A interface do modal é responsiva, garantindo que funcione bem em mobile e desktop.
 
-Responsivo: funciona bem em telas pequenas e grandes.
+💡 Créditos
 
-📝 Licença
+Desenvolvido por Kayke Araujo
 
-Projeto de aprendizado, livre para uso e modificação.
+Auxílio da Inteligência Artificial (IA) para organização do código, funcionalidades e sugestões de interface.
