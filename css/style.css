@@ -99,16 +99,16 @@ body{
 /* Container dos alarmes */
 #alarms-container {
     display: flex;
-    flex-direction: column; /* cada alarme em linha */
+    flex-direction: column;
     width: 100%;
-    gap: 10px; /* espaçamento entre alarmes */
+    gap: 10px;
 }
 
 /* Caixa de cada alarme */
 .alarm-item {
     display: flex;
-    justify-content: space-between; /* horário à esquerda, botões à direita */
-    align-items: center; /* centraliza verticalmente */
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 15px;
     border: 1px solid var(--white-blue);
     border-radius: 15px;
@@ -148,7 +148,7 @@ body{
 }
 
 .popup {
-  display: none; /* escondido por padrão */
+  display: none;
   position: fixed;
   top: 0; left: 0;
   width: 100%;
@@ -168,7 +168,7 @@ body{
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 15px; /* espaço entre inputs/botões */
+  gap: 15px;
   width: 300px;
 }
 
