@@ -83,13 +83,13 @@ Quando o alarme tocar, um popup 🔔 irá aparecer com a opção de desligar.
 ### 4️⃣ Lista de Sons
 ![Lista de Sons](https://github.com/user-attachments/assets/5153b3b9-b213-4fd1-94cb-47131372ed9e)
 
-##⚠️ Notas
+## ⚠️ Notas
 
 Os alarmes são salvos localmente no navegador usando localStorage. Se limpar os dados do navegador, os alarmes serão apagados.
 
 A interface do modal é responsiva, garantindo que funcione bem em mobile e desktop.
 
-##💡 Créditos
+## 💡 Créditos
 
 Desenvolvido por Kayke Araujo
 
