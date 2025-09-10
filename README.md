@@ -38,8 +38,11 @@ alarm-clock/
 │   └── style.css            # Estilos do projeto
 ├── js/
 │   └── script.js            # Lógica do relógio e alarmes
-└── sounds/
-    └── alarm-clock-90867.mp3   # Som do alarme
+├── sounds/
+│  └── alarm-clock-90867.mp3   # Som do alarme
+├── Fonts/
+    └── DS-DIGIT.TTF
+
 
 🚀 Como Usar
 
@@ -49,11 +52,19 @@ Veja o relógio em tempo real.
 
 Para adicionar um alarme:
 
-Preencha a hora (00–23) e o minuto (00–59)
-
 Clique em Add Alarm
 
+Uma nova janela se abrirá (Modal)
+
+Escolha a hora e o minuto
+
+Escolha o som
+
+Clique em Adicionar
+
 Cada alarme aparece em uma caixa:
+
+Para fechar clique em qualquer lugar da tela ou no "X" Da Modal.
 
 🕑 Horário à esquerda
 
