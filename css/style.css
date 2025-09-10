@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /*#endregion  */
 
+@font-face {
+  font-family: ds_digit;
+  src: url("../fonts/DS-DIGI.TTF");
+}
+
 /*#region variables */
 :root{
     /* Colors */
@@ -34,7 +39,7 @@ body{
 .container{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 400px;
 }
 
 .container .clock{
@@ -43,6 +48,8 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
+    font-family: ds_digit;
+    
 }
 
 .container .clock h1{
@@ -53,14 +60,14 @@ body{
 .container .clock h2{
     width: 90%;
     height: 70px;
-    font-size: 64px;
+    font-size: 8em;
     font-weight: 200;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--white-blue);
-    color: var(--black-blue);
+    color: var(--white-blue);
     border-radius: 20px;
+    margin-bottom: 30px;;
 }
 
 .container .alarm-clock{
@@ -75,12 +82,12 @@ body{
     margin-bottom: 20px;
 }
 
-.container .alarm-clock .create-alarm .timer, .buttons{
+.container .alarm-clock .create-alarm .buttons{
     display: flex;
     justify-content: center;
     gap: 13px;
     width: 100%;
-  
+    margin-top: 30px;
 }
 
 .container .alarm-clock .create-alarm .timer input{
@@ -283,8 +290,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 /*#region Query*/
 /* `sm` applies to x-small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-
-}
+    }
 
 /* `md` applies to small devices (landscape phones, less than 768px) */
 
@@ -304,6 +310,5 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 
 /* `xxl` applies to x-large devices (large desktops, less than 1400px) */
 @media (max-width: 1399.98px) { 
-
 }
 /*#endregion*/
