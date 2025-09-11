@@ -83,6 +83,10 @@ Quando o alarme tocar, um popup 🔔 irá aparecer com a opção de desligar.
 ### 4️⃣ Lista de Sons
 ![Lista de Sons](https://github.com/user-attachments/assets/5153b3b9-b213-4fd1-94cb-47131372ed9e)
 
+### 5️⃣ Design Inicial no Figma
+![Design Inicial no Figma](https://github.com/user-attachments/assets/1a28dd4f-7af2-4cf6-b374-30e387056779)
+
+
 ## ⚠️ Notas
 
 Os alarmes são salvos localmente no navegador usando localStorage. Se limpar os dados do navegador, os alarmes serão apagados.
