@@ -18,7 +18,7 @@ const stopBtn = document.getElementById('stop-alarm-btn');
 const popupTime = document.getElementById('popup-time');
 const clearBtn = document.getElementById('clear-all');
 
-// Modal criação
+// Modal
 const openModalBtn = document.getElementById('open-modal');
 const modal = document.getElementById('create-modal');
 const saveAlarmBtn = document.getElementById('save-alarm');
@@ -53,6 +53,18 @@ function loadAlarms() {
     if(alarms.length > 0) clearBtn.style.display = "block";
 }
 
+// ===== PREENCHE DROPDOWNS =====
+for(let h = 0; h < 24; h++){
+    const option = document.createElement('option');
+    option.value = option.textContent = String(h).padStart(2,'0');
+    modalHour.appendChild(option);
+}
+for(let m = 0; m < 60; m++){
+    const option = document.createElement('option');
+    option.value = option.textContent = String(m).padStart(2,'0');
+    modalMinute.appendChild(option);
+}
+
 // ===== CRIAR ALARME NO DOM =====
 function addAlarmFromStorage(hour, minute, active = true, sound = "./sounds/alarm-clock-90867.mp3") {
     const alarmDiv = document.createElement('div');
@@ -85,38 +97,8 @@ function addAlarmFromStorage(hour, minute, active = true, sound = "./sounds/alar
 
     alarmsContainer.appendChild(alarmDiv);
     alarms.push({hour, minute, active, sound, element: alarmDiv});
-    clearBtn.style.display = "block"; // mostra botão clear
+    clearBtn.style.display = "block";
 }
-
-// ===== MODAL =====
-openModalBtn.addEventListener('click', () => modal.style.display = 'flex');
-cancelAlarmBtn.addEventListener('click', () => modal.style.display = 'none');
-
-testSoundBtn.addEventListener('click', () => {
-    testAudio.src = soundSelect.value;
-    testAudio.play();
-});
-
-saveAlarmBtn.addEventListener('click', () => {
-    let hour = Number(modalHour.value);
-    let minute = Number(modalMinute.value);
-    let sound = soundSelect.value;
-
-    if(isNaN(hour) || isNaN(minute) || hour < 0 || hour > 23 || minute < 0 || minute > 59){
-        alert("Por favor, insira um horário válido (00-23 para horas, 00-59 para minutos).");
-        return;
-    }
-
-    hour = String(hour).padStart(2,'0');
-    minute = String(minute).padStart(2,'0');
-
-    addAlarmFromStorage(hour, minute, true, sound);
-    saveAlarms();
-
-    modal.style.display = 'none';
-    modalHour.value = '';
-    modalMinute.value = '';
-});
 
 // ===== BOTÃO CLEAR ALL =====
 clearBtn.addEventListener('click', () => {
@@ -126,22 +108,69 @@ clearBtn.addEventListener('click', () => {
     clearBtn.style.display = "none";
 });
 
-// Gerar opções de hora (00-23) e minuto (00-59)
-function populateSelect(id, max) {
-    const sel = document.getElementById(id);
-    sel.innerHTML = '';
-    for (let i = 0; i <= max; i++) {
-        const val = String(i).padStart(2, '0');
-        const opt = document.createElement('option');
-        opt.value = val;
-        opt.textContent = val;
-        sel.appendChild(opt);
+// ===== ABRIR E FECHAR MODAL COM ANIMAÇÃO =====
+let isTesting = false;
+
+openModalBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
+});
+
+cancelAlarmBtn.addEventListener('click', () => {
+    modal.classList.remove('show');
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+    testAudio.pause();
+    testAudio.currentTime = 0;
+    testSoundBtn.textContent = "▶️ Testar Som";
+    isTesting = false;
+});
+
+// ===== TESTAR / PARAR SOM =====
+testSoundBtn.addEventListener('click', () => {
+    if(!isTesting){
+        testAudio.src = soundSelect.value;
+        testAudio.loop = true;
+        testAudio.play();
+        testSoundBtn.textContent = "⏹ Parar Alarme";
+        isTesting = true;
+    } else {
+        testAudio.pause();
+        testAudio.currentTime = 0;
+        testSoundBtn.textContent = "▶️ Escutar Alarme";
+        isTesting = false;
     }
-}
+});
 
-populateSelect('modal-hour', 23);
-populateSelect('modal-minute', 59);
+// ===== SALVAR ALARME =====
+saveAlarmBtn.addEventListener('click', () => {
+    let hour = modalHour.value;
+    let minute = modalMinute.value;
+    let sound = soundSelect.value;
 
+    if(hour === "" || minute === ""){
+        alert("Por favor, selecione hora e minuto.");
+        return;
+    }
+
+    addAlarmFromStorage(hour, minute, true, sound);
+    saveAlarms();
+
+    modal.classList.remove('show');
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+
+    modalHour.value = '';
+    modalMinute.value = '';
+    testAudio.pause();
+    testAudio.currentTime = 0;
+    testSoundBtn.textContent = "▶️ Escutar Alarme";
+    isTesting = false;
+});
 
 // ===== CHECAGEM DE ALARMES =====
 setInterval(() => {
@@ -159,7 +188,7 @@ setInterval(() => {
             if(currentAlarming === null){
                 currentAlarming = alarm;
                 popupTime.textContent = `Alarme: ${alarm.hour}:${alarm.minute}`;
-                popup.style.display = "flex";
+                popup.classList.add('show');
                 alarmSound.src = alarm.sound;
                 alarmSound.play();
             }
@@ -171,7 +200,10 @@ setInterval(() => {
 stopBtn.addEventListener('click', () => {
     alarmSound.pause();
     alarmSound.currentTime = 0;
-    popup.style.display = "none";
+    popup.classList.remove('show');
+    setTimeout(() => {
+        popup.style.display = 'none';
+    }, 300);
     currentAlarming = null;
 });
 

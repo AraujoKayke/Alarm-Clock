@@ -1,6 +1,6 @@
 /*#region Poppins Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-/*#endregion  */
+/*#endregion*/
 
 /*#region variables */
 :root{
@@ -10,7 +10,7 @@
     --light-blue: #293A5A;
     --medium-red: #b63f3f;
 }
-/*#endregion variables */
+/*#endregion*/
 
 /*#region Default */
 *{
@@ -18,7 +18,7 @@
     margin: 0;
     box-sizing: border-box;
 }
-/*#endregion  */
+/*#endregion*/
 
 body{
     display: flex;
@@ -28,7 +28,7 @@ body{
     height: 100vh;
     background-image: linear-gradient(to top, #121825, #182847);
     color: var(--white-blue);
-    font-family: "Poppins", sans-serif
+    font-family: "Poppins", sans-serif;
 }
 
 .container{
@@ -96,6 +96,13 @@ body{
     transition: .3s;
 }
 
+.btn-modal{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
 /* Container dos alarmes */
 #alarms-container {
     display: flex;
@@ -147,146 +154,156 @@ body{
     transition: 0.3s;
 }
 
+/*#region Animação Modal */
 .popup {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* Modal */
-.popup-content {
-  background-color: var(--white-blue);
-  color: var(--black-blue);
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 300px;
+.popup.show {
+    display: flex;
+    opacity: 1;
 }
+
+.popup-content {
+    background-color: var(--white-blue);
+    color: var(--black-blue);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+
+    transform: translateY(-50px);
+    transition: transform 0.3s ease;
+}
+
+.popup.show .popup-content {
+    transform: translateY(0);
+}
+/*#endregion*/
 
 /* Inputs dentro do modal */
 .popup-content input,
 .popup-content select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--light-blue);
-  border-radius: 10px;
-  font-size: 16px;
-  font-family: "Poppins", sans-serif;
-  outline: none;          /* tira a borda preta */
-  box-shadow: none;       /* tira brilho azul em alguns navegadores */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--light-blue);
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    box-shadow: none;
 }
 
 .popup-content input:focus,
 .popup-content select:focus {
-  border: 1px solid var(--black-blue); /* borda mais suave */
+    border: 1px solid var(--black-blue);
 }
 
 /* Botões no modal */
 .popup-content button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: var(--light-blue);
-  color: var(--white-blue);
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--light-blue);
+    color: var(--white-blue);
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
 }
 
 .popup-content button:hover{
-  transition: .3s;
-  background-color: var(--white-blue);
-  color: var(--black-blue);
-  border: 1px solid var(--black-blue);
+    transition: .3s;
+    background-color: var(--white-blue);
+    color: var(--black-blue);
+    border: 1px solid var(--black-blue);
 }
 
 .popup-content select {
-  font-family: "Poppins", sans-serif;
-  font-size: 18px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  margin-bottom: 15px;
-  background-color: var(--white-blue);
-  color: var(--black-blue);
-  border: 1px solid var(--light-blue);
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin-bottom: 15px;
+    background-color: var(--white-blue);
+    color: var(--black-blue);
+    border: 1px solid var(--light-blue);
 }
 
 .popup-content select:focus {
-  outline: none;
+    outline: none;
 }
 
 /*#region container do switch */
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
 }
 
-/* esconde o checkbox */
 .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-/* trilho do switch */
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: var(--light-blue); /* cor off */
-  border: 1px solid var(--white-blue);
-  border-radius: 20px; /* deixa redondo */
-  transition: .3s;
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--light-blue);
+    border: 1px solid var(--white-blue);
+    border-radius: 20px;
+    transition: .3s;
 }
 
-/* bolinha */
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 13px;
-  width: 13px;
-  left: 3.5px;
-  bottom: 2.5px;
-  background-color: var(--white-blue);
-  border-radius: 50%;
-  transition: .3s;
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 3.5px;
+    bottom: 2.5px;
+    background-color: var(--white-blue);
+    border-radius: 50%;
+    transition: .3s;
 }
 
-/* quando marcado */
 .switch input:checked + .slider {
-  background-color: var(--white-blue); /* cor ON */
+    background-color: var(--white-blue);
 }
 
 .switch input:checked + .slider:before {
-  background-color: var(--light-blue);
-  transform: translateX(19.5px); /* desliza bolinha */
+    background-color: var(--light-blue);
+    transform: translateX(19.5px);
 }
-/*#endregion  */
+/*#endregion*/
 
-/*#region Query*/
+/*#region Queries*/
 @media (max-width: 575.98px) {
     .popup-content {
-        width: 90%;       /* ocupa quase toda a tela horizontalmente */
-        max-height: 90vh; /* altura máxima 90% da tela */
-        padding: 15px;    /* menos espaçamento interno */
-        overflow-y: auto; /* permite scroll se tiver muitos elementos */
-        display: flex;
-        flex-direction: column;
-        gap: 10px;        /* espaço entre elementos */
+        width: 90%;
+        max-height: 90vh;
+        padding: 15px;
+        overflow-y: auto;
+        gap: 10px;
     }
 
     .popup-content label,
@@ -300,8 +317,10 @@ body{
         padding: 8px 12px;
     }
 }
+
 @media (max-width: 767.98px) {}
 @media (max-width: 991.98px) {}
 @media (max-width: 1199.98px) {}
 @media (max-width: 1399.98px) {} 
 /*#endregion*/
+
